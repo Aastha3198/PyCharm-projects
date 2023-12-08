@@ -1,0 +1,205 @@
+from tkinter import *
+from PIL import Image,ImageTk
+
+def User1():
+    obj2=Toplevel()
+    back_user1image = Image.open('images/image7.jpeg')
+    back_user1image_resize = back_user1image.resize((700, 400), Image.LANCZOS)
+    final_back2 = ImageTk.PhotoImage(back_user1image_resize)
+    label_set_image = Label(obj2, image=final_back2, bd=0)
+    label_set_image.place(x=0, y=0)
+
+    icon1_image = Image.open('images/image7.jpeg')
+    icon1_image_resize = icon1_image.resize((90, 90), Image.LANCZOS)
+    final_icon1 = ImageTk.PhotoImage(icon1_image_resize)
+    obj2.iconphoto(False, final_icon1)
+
+    gadgets_panel = Label(obj2,fg='black', text='Gadgets', font='coachin 20 bold')
+    gadgets_panel.place(x=300, y=20)
+
+    gadgets_entry1 = Label(obj2, bg='black',fg='white', text='Television', font='coachin 16 bold')
+    gadgets_entry1.place(x=305, y=120)
+
+    gadgets_entry2 = Label(obj2, bg='black', fg='white', text='Mobile Phones', font='coachin 16 bold')
+    gadgets_entry2.place(x=286, y=210)
+
+    gadgets_entry3 = Label(obj2, bg='black', fg='white', text='Headphones', font='coachin 16 bold')
+    gadgets_entry3.place(x=292, y=300)
+
+    obj2.geometry('700x400+210+120')
+    obj2.title('Gadgets')
+    obj2.resizable(False,False)
+    obj2.mainloop()
+
+
+def User2():
+    obj3=Toplevel()
+    back_user2image = Image.open('images/image8.jpeg')
+    back_user2image_resize = back_user2image.resize((700, 400), Image.LANCZOS)
+    final_back3 = ImageTk.PhotoImage(back_user2image_resize)
+    label_set_image2 = Label(obj3, image=final_back3, bd=0)
+    label_set_image2.place(x=0, y=0)
+
+    icon2_image = Image.open('images/image8.jpeg')
+    icon2_image_resize = icon2_image.resize((90, 90), Image.LANCZOS)
+    final_icon2 = ImageTk.PhotoImage(icon2_image_resize)
+    obj3.iconphoto(False, final_icon2)
+
+    grocery_panel = Label(obj3,fg='black', text='Grocery', font='coachin 20 bold')
+    grocery_panel.place(x=150, y=110)
+
+    grocery_entry1 = Label(obj3, bg='black',fg='white', text='Vegetables', font='coachin 16 bold')
+    grocery_entry1.place(x=145, y=200)
+
+    grocery_entry2 = Label(obj3, bg='black', fg='white', text='Fruits', font='coachin 16 bold')
+    grocery_entry2.place(x=160, y=290)
+
+    obj3.geometry('700x400+210+120')
+    obj3.title('Grocery')
+    obj3.resizable(False,False)
+    obj3.mainloop()
+
+
+def User3():
+    obj4=Toplevel()
+    back_user3image = Image.open('images/image9.jpeg')
+    back_user3image_resize = back_user3image.resize((700, 400), Image.LANCZOS)
+    final_back4 = ImageTk.PhotoImage(back_user3image_resize)
+    label_set_image3 = Label(obj4, image=final_back4, bd=0)
+    label_set_image3.place(x=0, y=0)
+
+    icon3_image = Image.open('images/image9.jpeg')
+    icon3_image_resize = icon3_image.resize((90, 90), Image.LANCZOS)
+    final_icon3 = ImageTk.PhotoImage(icon3_image_resize)
+    obj4.iconphoto(False, final_icon3)
+
+    clothes_panel = Label(obj4,fg='black', text='Clothes', font='coachin 20 bold')
+    clothes_panel.place(x=300, y=90)
+
+    clothes_entry1 = Label(obj4, bg='black',fg='white', text='Ethnic wear', font='coachin 16 bold')
+    clothes_entry1.place(x=175, y=200)
+
+    clothes_entry2 = Label(obj4, bg='black', fg='white', text='Western wear', font='coachin 16 bold')
+    clothes_entry2.place(x=160, y=290)
+
+    clothes_entry3 = Label(obj4, bg='black', fg='white', text='Casual wear', font='coachin 16 bold')
+    clothes_entry3.place(x=390, y=240)
+
+    obj4.geometry('700x400+210+120')
+    obj4.title('Clothes')
+    obj4.resizable(False,False)
+    obj4.mainloop()
+
+
+
+def User4():
+    obj5=Toplevel()
+    back_user4image = Image.open('images/image10.jpg')
+    back_user4image_resize = back_user4image.resize((700, 400), Image.LANCZOS)
+    final_back5 = ImageTk.PhotoImage(back_user4image_resize)
+    label_set_image4 = Label(obj5, image=final_back5, bd=0)
+    label_set_image4.place(x=0, y=0)
+
+    icon4_image = Image.open('images/image10.jpg')
+    icon4_image_resize = icon4_image.resize((90, 90), Image.LANCZOS)
+    final_icon4 = ImageTk.PhotoImage(icon4_image_resize)
+    obj5.iconphoto(False, final_icon4)
+
+    acc_panel = Label(obj5,fg='black', text='Accessaries', font='coachin 20 bold')
+    acc_panel.place(x=150, y=40)
+
+    acc_entry1 = Label(obj5, bg='black',fg='white', text='Purse', font='coachin 16 bold')
+    acc_entry1.place(x=185, y=150)
+
+    acc_entry2 = Label(obj5, bg='black', fg='white', text='Makeup Items', font='coachin 16 bold')
+    acc_entry2.place(x=162, y=240)
+
+    acc_entry3 = Label(obj5, bg='black', fg='white', text='Style Items', font='coachin 16 bold')
+    acc_entry3.place(x=173, y=330)
+
+    obj5.geometry('700x400+210+120')
+    obj5.title('Clothes')
+    obj5.resizable(False,False)
+    obj5.mainloop()
+
+from tkinter import Checkbutton,messagebox
+
+root=Tk()
+
+def sign_up():
+    root.destroy()
+    obj1=Tk()
+    back_image = Image.open('images/image1.jpg')
+    back_image_resize = back_image.resize((890, 490), Image.LANCZOS)
+    final_back = ImageTk.PhotoImage(back_image_resize)
+    label_set = Label(obj1, image=final_back, bd=0.5)
+    label_set.place(x=5, y=5)
+
+    icon_image = Image.open('images/image2.png')
+    icon_image_resize = icon_image.resize((90, 90), Image.LANCZOS)
+    final_icon = ImageTk.PhotoImage(icon_image_resize)
+    obj1.iconphoto(False, final_icon)
+
+    heading = Label(obj1, bg='red', fg='white', text='Shopping Mart', font='coachin 20 bold')
+    heading.place(x=340, y=20)
+
+    item1 = Button(obj1, highlightbackground='red', bg='yellow', fg='black', text='Gadgets', font='coachin 16 bold',cursor='hand2',command=User1)
+    item1.place(x=160, y=100, width=100, height=40)
+    item1_image = Image.open('images/image3.jpg')
+    item1_image_resize = item1_image.resize((90, 90), Image.LANCZOS)
+    final_item1_image = ImageTk.PhotoImage(item1_image_resize)
+    label_set1 = Label(obj1, image=final_item1_image, bd=0)
+    label_set1.place(x=30, y=75)
+
+    item2 = Button(obj1, highlightbackground='red', bg='yellow', fg='black', text='Grocery', font='coachin 16 bold',cursor='hand2',command=User2)
+    item2.place(x=160, y=250, width=100, height=40)
+    item2_image = Image.open('images/image4.png')
+    item2_image_resize = item2_image.resize((90, 90), Image.LANCZOS)
+    final_item2_image = ImageTk.PhotoImage(item2_image_resize)
+    label_set2 = Label(obj1, image=final_item2_image, bd=0)
+    label_set2.place(x=30, y=220)
+
+    item3 = Button(obj1, highlightbackground='red', bg='yellow', fg='black', text='Clothes', font='coachin 16 bold',cursor='hand2',command=User3)
+    item3.place(x=160, y=400, width=100, height=40)
+    item3_image = Image.open('images/image5.jpg')
+    item3_image_resize = item3_image.resize((90, 90), Image.LANCZOS)
+    final_item3_image = ImageTk.PhotoImage(item3_image_resize)
+    label_set3 = Label(obj1, image=final_item3_image, bd=0)
+    label_set3.place(x=30, y=375)
+
+    item4 = Button(obj1, highlightbackground='red', bg='yellow', fg='black', text='Accessaries', font='coachin 16 bold',cursor='hand2',command=User4)
+    item4.place(x=530, y=250, width=140, height=40)
+    item4_image = Image.open('images/image6.jpg')
+    item4_image_resize = item4_image.resize((90, 90), Image.LANCZOS)
+    final_item4_image = ImageTk.PhotoImage(item4_image_resize)
+    label_set4 = Label(obj1, image=final_item4_image, bd=0)
+    label_set4.place(x=410, y=220)
+
+    obj1.geometry('900x500+210+120')
+    obj1.title('Shopping Mart')
+    obj1.resizable(False, False)
+    obj1.mainloop()
+
+image=Image.open('images/background1.jpg')
+image_resize=image.resize((900,500),Image.LANCZOS)
+final=ImageTk.PhotoImage(image_resize)
+label=Label(root,image=final,bd=0)
+label.place(x=0,y=0)
+
+f1=Frame(root,bg='lightblue')
+f1.place(x=300,y=90,width=320,height=350)
+
+l1=Label(f1,text='Login Panel',bg='lightblue',fg='black',font='coachin 20 bold').place(x=90,y=5)
+l2=Label(f1,text='Name:',bg='lightblue',fg='black',font='coachin 14 bold').place(x=10,y=70)
+l3=Label(f1,text='Email Id:',bg='lightblue',fg='black',font='coachin 14 bold').place(x=10,y=130)
+l4=Label(f1,text='Password:',bg='lightblue',fg='black',font='coachin 14 bold').place(x=10,y=190)
+l2_entry=Entry(f1,font='coachin 14 bold').place(x=120,y=70,width=190)
+l3_entry=Entry(f1,font='coachin 14 bold').place(x=120,y=130,width=190)
+l4_entry=Entry(f1,font='coachin 14 bold').place(x=120,y=190,width=190)
+b1=Button(f1,font='coachin 14 bold',bg='black',fg='white',text='Sign up',cursor='hand2',command=sign_up)
+b1.place(x=120,y=250,width=100)
+
+root.title('Login to Shopping Mart')
+root.geometry('900x500+200+100')
+root.resizable(False,False)
+root.mainloop()
