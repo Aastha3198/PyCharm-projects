@@ -1,0 +1,92 @@
+from tkinter import *
+from PIL import Image,ImageTk
+def click(event):
+    global whitescreenvalue
+    text=event.widget.cget("text")
+    if text=="=":
+        if whitescreenvalue.get().isdigit():
+            value=int(whitescreenvalue.get())
+        else:
+            try:
+                value=eval(whitescreenvalue.get())
+            except Exception as e:
+                print(e)
+                value='Error'
+
+        whitescreenvalue.set(value)
+        screen.update()
+
+    elif text=="C":
+        whitescreenvalue.set("")
+        screen.update()
+    else:
+        whitescreenvalue.set(whitescreenvalue.get()+text)
+        screen.update()
+
+root=Tk()
+
+icon_image=Image.open('images/calcualtoricon.png')
+icon_image_resize=icon_image.resize((75,75),Image.LANCZOS)
+final_icon=ImageTk.PhotoImage(icon_image_resize)
+root.iconphoto(False,final_icon)
+
+whitescreenvalue=StringVar()
+whitescreenvalue.set("")
+screen=Entry(root,textvar=whitescreenvalue,font='lucida 35 bold')
+screen.place(x=15,y=5,width=320,height=50)
+
+f1=Frame(root,bg='grey')
+f1.place(x=13,y=65,width=320,height=550)
+b1=Button(f1,text='9',font='lucida 30 bold')
+b1.place(x=14,y=8,width=90,height=85)
+b1.bind("<Button-1>",click)
+b2=Button(f1,text='8',font='lucida 30 bold')
+b2.place(x=114,y=8,width=90,height=85)
+b2.bind("<Button-1>",click)
+b3=Button(f1,text='7',font='lucida 30 bold')
+b3.place(x=214,y=8,width=90,height=85)
+b3.bind("<Button-1>",click)
+b4=Button(f1,text='6',font='lucida 30 bold')
+b4.place(x=14,y=96,width=90,height=85)
+b4.bind("<Button-1>",click)
+b5=Button(f1,text='5',font='lucida 30 bold')
+b5.place(x=114,y=96,width=90,height=85)
+b5.bind("<Button-1>",click)
+b6=Button(f1,text='4',font='lucida 30 bold')
+b6.place(x=214,y=96,width=90,height=85)
+b6.bind("<Button-1>",click)
+b7=Button(f1,text='3',font='lucida 30 bold')
+b7.place(x=14,y=186,width=90,height=85)
+b7.bind("<Button-1>",click)
+b8=Button(f1,text='2',font='lucida 30 bold')
+b8.place(x=114,y=186,width=90,height=85)
+b8.bind("<Button-1>",click)
+b9=Button(f1,text='1',font='lucida 30 bold')
+b9.place(x=214,y=186,width=90,height=85)
+b9.bind("<Button-1>",click)
+b10=Button(f1,text='0',font='lucida 30 bold')
+b10.place(x=14,y=276,width=90,height=85)
+b10.bind("<Button-1>",click)
+b11=Button(f1,text='-',font='lucida 30 bold')
+b11.place(x=114,y=276,width=90,height=85)
+b11.bind("<Button-1>",click)
+b12=Button(f1,text='*',font='lucida 30 bold')
+b12.place(x=214,y=276,width=90,height=85)
+b12.bind("<Button-1>",click)
+b13=Button(f1,text='/',font='lucida 30 bold')
+b13.place(x=14,y=366,width=90,height=85)
+b13.bind("<Button-1>",click)
+b14=Button(f1,text='%',font='lucida 30 bold')
+b14.place(x=114,y=366,width=90,height=85)
+b14.bind("<Button-1>",click)
+b15=Button(f1,text='=',font='lucida 30 bold')
+b15.place(x=214,y=366,width=90,height=85)
+b15.bind("<Button-1>",click)
+b16=Button(f1,text='C',font='lucida 30 bold')
+b16.place(x=114,y=456,width=90,height=85)
+b16.bind("<Button-1>",click)
+
+root.title('Aastha\'s Calculator')
+root.geometry('344x625')
+root.resizable(False,False)
+root.mainloop()
