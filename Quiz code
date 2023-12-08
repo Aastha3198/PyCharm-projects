@@ -1,0 +1,62 @@
+from tkinter import *
+from tkinter import messagebox
+from PIL import Image,ImageTk
+root=Tk()
+
+image=Image.open('images/quizimage.jpg')
+image_resize=image.resize((700,400),Image.LANCZOS)
+final_image=ImageTk.PhotoImage(image_resize)
+label_image=Label(root,image=final_image,bd=0)
+label_image.place(x=0,y=0)
+
+image_icon=Image.open('images/quizicon.png')
+image_icon_resize=image_icon.resize((90,90),Image.LANCZOS)
+final_icon=ImageTk.PhotoImage(image_icon_resize)
+root.iconphoto(False,final_icon)
+
+questions = ["Q1: What is the capital of Italy?","Q2: Which planet is known as the smallest Planet?","Q3: What is the largest mammal in the world?"]
+
+answers = ["Rome", "Mercury", "Blue Whale"]
+
+current_question = 0
+def check_answer():
+    user_answer = answer_entry.get()
+    if user_answer == answers[current_question]:
+        score_var.set(score_var.get() + 1)
+    next_question()
+
+def next_question():
+    global current_question
+    current_question += 1
+    if current_question < len(questions):
+        question_label.config(text=questions[current_question])
+        answer_entry.delete(0, END)
+    else:
+        root.destroy()
+        if score_var.get()<=1:
+            messagebox.showinfo("Quiz completed", "Your score is: " + str(score_var.get()))
+        elif score_var.get()==2:
+            messagebox.showinfo("Quiz completed", "Good try!, your score is: " + str(score_var.get()))
+        else:
+            messagebox.showinfo("Quiz completed", "Congratulations, your score is: " + str(score_var.get()))
+
+title=Label(root,text='Quiz',bg='black',fg='white',font='lucida 26 bold',relief=SUNKEN)
+title.place(x=320,y=10,width=100)
+
+question_label = Label(root,wraplength=440,text=questions[current_question],font='lucida 20')
+question_label.place(x=160,y=100)
+
+answer_entry = Entry(root,font='lucida 16')
+answer_entry.place(x=245,y=180,height=30)
+
+submit_button = Button(root, text="Submit",bg='lightblue',fg='black',font='lucida 14',command=check_answer)
+submit_button.place(x=330,y=270)
+
+score_var = IntVar()
+score_label = Label(root, textvariable=score_var,font='lucida 14')
+score_label.place(x=360,y=330)
+
+root.geometry('700x400')
+root.resizable(False,False)
+root.title("Quiz Application")
+root.mainloop()
