@@ -1,0 +1,42 @@
+from tkinter import *
+from PIL import Image,ImageTk
+import calendar
+from tkinter import messagebox
+
+def exit():
+    root.destroy()
+def showcalender():
+    if year_entry.get()!='':
+        obj = Tk()
+        year=int(year_entry.get())
+        cal_content=calendar.calendar(year)
+        calYear = Label(obj, text=cal_content, font="Consolas 10 bold")
+        calYear.place(x=10,y=5)
+        obj.title(f'Calender of year {year_entry.get()}')
+        obj.geometry('550x600')
+        obj.resizable(False, False)
+        root.destroy()
+        obj.mainloop()
+    elif year_entry.get()=='':
+        a = messagebox.showinfo("Error", "Please enter the year whose calender you want to see.")
+
+if __name__ == '__main__':
+    root=Tk()
+    icon=Image.open('images/calendericon.png')
+    icon_resize=icon.resize((75,75),Image.LANCZOS)
+    final_icon=ImageTk.PhotoImage(icon_resize)
+    root.iconphoto(False,final_icon)
+    cal=Label(root,font='lucida 24 bold',text='Calender')
+    cal.place(x=50,y=5,width=200,height=30)
+    entry=Label(root, text='Enter year:',font='lucida 14')
+    entry.place(x=40,y=80,width=100,height=20)
+    year_entry=Entry(root,font='lucida 12')
+    year_entry.place(x=160,y=80,width=100)
+    show_button=Button(root,bg='black',fg='white',text='Show Calender of the year',font='lucida 14 bold',cursor='hand2',command=showcalender)
+    show_button.place(x=20,y=150,width=260,height=30)
+    exit_button=Button(root,bg='black',fg='white',text='Exit',font='lucida 14 bold',cursor='hand2',command=exit)
+    exit_button.place(x=125,y=195,width=60,height=30)
+    root.title('My Calender')
+    root.geometry('300x250')
+    root.resizable(False,False)
+    root.mainloop()
