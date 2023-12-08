@@ -1,0 +1,40 @@
+from tkinter import *
+from PIL import Image,ImageTk
+
+root=Tk()
+list_icon=Image.open('images/listicon.png')
+list_icon_resize=list_icon.resize((75,75),Image.LANCZOS)
+final_list_icon=ImageTk.PhotoImage(list_icon_resize)
+root.iconphoto(False,final_list_icon)
+
+def add_list():
+    additem=add_entry.get("1.0",'end-1c')
+    if additem:
+        list.insert(END, additem)
+        add_entry.delete(1.0, END)
+    # i = 0
+    # while i < 2:
+    #     list.insert(1.0, i)
+    #     i = i + 1
+def remove_list():
+    selected=list.curselection()
+    list.delete(selected)
+
+Label(root,text='My List',font='lucida 20 bold',relief=SUNKEN).place(x=100,y=5,width=110)
+add_entry=Text(root,font='lucida 12')
+add_entry.place(x=5,y=50,width=290,height=30)
+add=Button(root,text='Add to the list',cursor='hand1',command=add_list)
+add.place(x=110,y=90)
+list=Listbox(root)
+list.place(x=5,y=160,width=290,height=300)
+remove=Button(root,text='Remove from the list',cursor='hand2',command=remove_list)
+remove.place(x=90,y=480)
+list_scroll=Scrollbar(list)
+list_scroll.place(x=270,y=0,height=300)
+list_scroll.config(command=list.yview)
+list.config(yscrollcommand=list_scroll.set)
+
+root.title('To Do List')
+root.geometry('300x550')
+root.resizable(False,False)
+root.mainloop()
